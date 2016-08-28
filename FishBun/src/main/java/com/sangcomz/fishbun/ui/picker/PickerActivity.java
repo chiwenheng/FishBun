@@ -68,6 +68,7 @@ public class PickerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo_picker);
+        initPermission();
         initView();
         initController();
         setData(getIntent());
@@ -77,6 +78,11 @@ public class PickerActivity extends AppCompatActivity {
         if (pickerController.checkPermission())
             new DisplayImage().execute();
     }
+
+    private void initPermission(){
+        permissionCheck = new PermissionCheck(this);
+    }
+
 
     @Override
     public void onBackPressed() {

@@ -49,15 +49,20 @@ public class AlbumActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo_album);
+        initPermission();
         initView();
         initController();
         if (albumController.checkPermission())
             new DisplayImage().execute();
     }
 
-    void initView() {
+    private void initView() {
         initToolBar();
         initRecyclerView();
+    }
+
+    private void initPermission(){
+        permissionCheck = new PermissionCheck(this);
     }
 
     @Override

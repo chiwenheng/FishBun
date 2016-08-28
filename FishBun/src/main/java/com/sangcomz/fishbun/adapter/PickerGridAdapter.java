@@ -130,6 +130,14 @@ public class PickerGridAdapter
 
 
             if (imgPath != null && !imgPath.equals("")) {
+                if (!(Define.PHOTO_PICKER_SIZE > 0))
+                    Define.PHOTO_PICKER_SIZE =
+                            vh.imgPhoto
+                                    .getContext()
+                                    .getResources()
+                                    .getDisplayMetrics()
+                                    .widthPixels / Define.PHOTO_SPAN_COUNT;
+
                 Glide
                         .with(vh.imgPhoto.getContext())
                         .load(imgPath)

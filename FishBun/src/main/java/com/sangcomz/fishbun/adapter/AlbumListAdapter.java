@@ -74,6 +74,11 @@ public class AlbumListAdapter
 
         if (thumbList != null) {
             if (thumbList.size() > position) {
+                if (Define.ALBUM_THUMNAIL_SIZE <= 0)
+                    Define.ALBUM_THUMNAIL_SIZE = (int)
+                            holder.imgAlbum.getContext().getResources().getDimension(R.dimen.album_thum_size);
+
+                System.out.println("Define.ALBUM_THUMNAIL_SIZE ::::" + Define.ALBUM_THUMNAIL_SIZE);
                 Glide
                         .with(holder.imgAlbum.getContext())
                         .load(thumPath)
